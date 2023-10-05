@@ -7,22 +7,45 @@ interface RepoListProps {
 
 const RepoList: React.FC<RepoListProps> = ({ username }) => {
   const [repos, setRepos] = useState<any[]>([])
+  const [loading, setLoading] = useState<boolean>(false)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
+    if (!username) {
+      return
+    }
+    setLoading(true)
     getUserRepos(username)
       .then((response) => {
-        setRepos(response.data)
+        setRepos(response)
+        setLoading(false)
       })
       .catch((error) => {
         console.error('Erro ao buscar repositórios:', error)
+        setError('Erro ao buscar repositórios')
+        setLoading(false)
       })
   }, [username])
 
+  if (!username) {
+    return <div>Please enter a username to search.</div>
+  }
+
+  if (loading) {
+    return <div>Loading...</div>
+  }
+
+  if (error) {
+    return <div>{error}</div>
+  }
+
   return (
     <div>
-      {repos.map((repo) => (
-        <div key={repo.id}>{repo.name}</div>
-      ))}
+      {repos && repos.length > 0 ? (
+        repos.map((repo) => <div key={repo.id}>{repo.name}</div>)
+      ) : (
+        <div>No repositories found</div>
+      )}
     </div>
   )
 }
