@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Avatar, Typography, Paper, Box, Grid, CircularProgress } from '@mui/material'
 import { getUserDetails } from '../Services/getUserDetails'
 
 interface UserProfileProps {
@@ -29,13 +30,38 @@ const UserProfile: React.FC<UserProfileProps> = ({ username }) => {
     fetchData()
   }, [username])
 
-  if (!userDetails) return <div>Loading...</div>
+  if (!userDetails) {
+    return (
+      <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh">
+        <CircularProgress />
+      </Box>
+    )
+  }
 
   return (
-    <div>
-      <img src={userDetails.avatar_url} alt={`${userDetails.login} avatar`} />
-      <h1>{userDetails.login}</h1>
-    </div>
+    <Paper elevation={3}>
+      <Box p={2}>
+        <Grid
+          container
+          spacing={2}
+          alignItems="center"
+          sx={{
+            flexDirection: {
+              xs: 'column',
+              md: 'row',
+            },
+          }}
+        >
+          <Grid item>
+            <Avatar src={userDetails.avatar_url} alt={`${userDetails.login} avatar`} sx={{ width: 160, height: 160 }} />
+          </Grid>
+          <Grid item>
+            <Typography variant="h3">{userDetails.login}</Typography>
+            <Typography variant="h4">{userDetails.bio || 'Sem Descrição'}</Typography>
+          </Grid>
+        </Grid>
+      </Box>
+    </Paper>
   )
 }
 
