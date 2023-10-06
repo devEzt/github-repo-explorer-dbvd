@@ -1,14 +1,20 @@
+// Home.tsx
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import UserSearch from '../Components/UserSearch'
-import RepoList from '../Components/RepoList'
 
 const Home: React.FC = () => {
+  const navigate = useNavigate()
   const [username, setUsername] = useState<string>('')
+
+  const handleSearch = (username: string) => {
+    setUsername(username)
+    navigate(`/user/${username}`)
+  }
 
   return (
     <div>
-      <UserSearch onSearch={setUsername} />
-      <RepoList username={username} />
+      <UserSearch onSearch={handleSearch} />
     </div>
   )
 }

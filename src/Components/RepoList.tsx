@@ -11,20 +11,20 @@ const RepoList: React.FC<RepoListProps> = ({ username }) => {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    if (!username) {
-      return
-    }
-    setLoading(true)
-    getUserRepos(username)
-      .then((response) => {
+    const fetchData = async () => {
+      try {
+        setLoading(true)
+        const response = await getUserRepos(username)
         setRepos(response)
         setLoading(false)
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error('Erro ao buscar repositórios:', error)
         setError('Erro ao buscar repositórios')
         setLoading(false)
-      })
+      }
+    }
+
+    fetchData()
   }, [username])
 
   if (!username) {
