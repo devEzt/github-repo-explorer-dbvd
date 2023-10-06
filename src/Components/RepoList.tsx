@@ -65,6 +65,16 @@ const RepoList: React.FC<RepoListProps> = ({ username }) => {
     )
   }
 
+  if (repos.length === 0) {
+    return (
+      <Paper elevation={3}>
+        <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh">
+          <img src="/NotFound.png" alt="GitExplorer Logo" />{' '}
+        </Box>
+      </Paper>
+    )
+  }
+
   if (error) {
     return <div>{error}</div>
   }
