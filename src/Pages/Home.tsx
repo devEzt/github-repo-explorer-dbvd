@@ -1,21 +1,19 @@
-// Home.tsx
-import React, { useState } from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Container } from '@mui/material'
 import UserSearch from '../Components/UserSearch'
 
 const Home: React.FC = () => {
   const navigate = useNavigate()
-  const [username, setUsername] = useState<string>('')
 
   const handleSearch = (username: string) => {
-    setUsername(username)
     navigate(`/user/${username}`)
   }
 
   return (
-    <div>
+    <Container>
       <UserSearch onSearch={handleSearch} />
-    </div>
+    </Container>
   )
 }
 

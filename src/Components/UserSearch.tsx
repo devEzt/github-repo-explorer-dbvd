@@ -1,26 +1,35 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { TextField, Button, Box } from '@mui/material'
 
 interface UserSearchProps {
   onSearch: (username: string) => void
 }
 
 const UserSearch: React.FC<UserSearchProps> = ({ onSearch }) => {
-  const [username, setUsername] = useState<string>('')
+  const [username, setUsername] = React.useState<string>('')
 
   const handleSearch = () => {
     onSearch(username)
   }
 
   return (
-    <div>
-      <input
-        type="text"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        placeholder="Search GitHub username"
-      />
-      <button onClick={handleSearch}>Search</button>
-    </div>
+    <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" height="100vh">
+      <img src="/GitExplorerDBVD.png" alt="GitExplorer Logo" />
+      <Box mt={2} width="50%">
+        <TextField
+          fullWidth
+          variant="outlined"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          placeholder="Search GitHub username"
+        />
+      </Box>
+      <Box mt={2}>
+        <Button variant="contained" color="primary" onClick={handleSearch}>
+          Search
+        </Button>
+      </Box>
+    </Box>
   )
 }
 
