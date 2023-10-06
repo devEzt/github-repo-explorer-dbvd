@@ -1,23 +1,26 @@
-// UserPage.tsx
 import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import RepoDetails from '../Components/RepoDetails'
+import { Button, Box } from '@mui/material'
 
 const RepoPage: React.FC = () => {
   const { username = '', repoName = '' } = useParams<{ username: string; repoName: string }>()
   const navigate = useNavigate()
 
   return (
-    <div>
-      <RepoDetails username={username} repoName={repoName} />
-      <button
+    <Box>
+      <Button
+        variant="contained"
+        color="primary"
         onClick={() => {
           navigate(-1)
         }}
+        style={{ position: 'fixed', top: '16px', right: '16px' }}
       >
         Back
-      </button>
-    </div>
+      </Button>
+      <RepoDetails username={username} repoName={repoName} />
+    </Box>
   )
 }
 

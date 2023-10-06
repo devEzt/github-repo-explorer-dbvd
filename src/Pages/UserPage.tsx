@@ -18,7 +18,7 @@ const UserPage: React.FC = () => {
         }}
         style={{ position: 'fixed', top: '16px', right: '16px' }}
       >
-        Voltar
+        Back
       </Button>
       <Container>
         <Grid mb={1}>
