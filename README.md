@@ -1,46 +1,65 @@
-# Getting Started with Create React App
+# GitExplorerDBVD
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![GitExplorer Logo](./public/GitExplorerDBVD.png)
 
-## Available Scripts
+Este projeto foi uma experiência incrível para fixar alguns conceitos aplicados em REACT.
 
-In the project directory, you can run:
+## Visão Geral
 
-### `npm start`
+GitExplorerDBVD é uma aplicação web que permite aos usuários explorar perfis e repositórios do GitHub. Foi uma jornada incrível trabalhar neste projeto, e a escolha das bibliotecas, a estruturação do código e as práticas de otimização foram cuidadosamente consideradas.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Demo
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+A aplicação está hospedada no Vercel e você pode vê-la em ação [aqui](https://github-repo-explorer-dbvd.vercel.app/).
 
-### `npm test`
+## Tecnologias Utilizadas
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React.js
+- TypeScript
+- Material UI
+- React Router
+- Axios
 
-### `npm run build`
+## Como Rodar o Projeto
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Instalação
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Clone o repositório e instale as dependências.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+git clone https://github.com/SeuUser/GitExplorerDBVD.git
+```
 
-### `npm run eject`
+```bash
+cd GitExplorerDBVD
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+npm install
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Desenvolvimento
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Para iniciar o servidor de desenvolvimento.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+npm start
+```
 
-## Learn More
+Abra [http://localhost:3000](http://localhost:3000) para visualizá-lo no navegador.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Produção
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Para criar uma build de produção.
+
+```bash
+npm run build
+```
+
+## Licença
+
+MIT
+
+---
+
+Feito por Alexandre Maciel www.github.com/devezt .
