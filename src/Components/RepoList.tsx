@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getUserRepos } from '../Services/githubAPI'
+import { Link } from 'react-router-dom'
 
 interface RepoListProps {
   username: string
@@ -66,7 +67,11 @@ const RepoList: React.FC<RepoListProps> = ({ username }) => {
       </select>
 
       {repos && repos.length > 0 ? (
-        repos.map((repo) => <div key={repo.id}>{repo.name}</div>)
+        repos.map((repo) => (
+          <div>
+            <Link to={`/user/${username}/repo/${repo.name}`}>{repo.name}</Link>
+          </div>
+        ))
       ) : (
         <div>No repositories found</div>
       )}
